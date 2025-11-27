@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(to bottom, black, #190850);
+    color: white;
+}
+
+.logoo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #5832d2;
+}
+
+header {
+    margin-top: 20px;
+    position: absolute      ;
+    border-color: #5832d2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 9%;
+    background-color: transparent;
+    filter: drop-shadow(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 3rem;
+    color: #5832d2;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+nav a {
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+nav a:hover,
+nav a.active {
+    color: #5832d2;
+    border-bottom: 3px solid #5832d2;
+}
+
+@media(max-width:995px) {
+    nav {
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        width: 40%;
+        border-left: 3px solid #5832d2;
+        border-bottom: 3px solid #5832d2;
+        border-bottom-left-radius: 2rem;
+        padding: 1rem solid;
+        background-color: #161616;
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    nav a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    nav a:hover,
+    nav a.active {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid #5832d2;
+    }
+}
+
+section {
+    padding: 10rem 9% 5rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    font-size: 4rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: white;
+}
+
+h2 span {
+    color: #5832d2;
+}
+
+.certificates-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* force 4 columns */
+    gap: 2.5rem; /* even spacing vertically and horizontally */
+    width: 100%;
+    padding: 2rem 0;
+    align-items: start; /* ensure items align to top */
+    grid-auto-rows: 1fr; /* make rows equal height */
+    border-radius: 5px;
+}
+
+.certificate-card {
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #5832d2;
+    border-radius: 2rem;
+    overflow: visible;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+    box-shadow: 0 0 15px rgba(88, 50, 210, 0.3);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 18px;
+    box-sizing: border-box;
+}
+
+.certificate-card::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid transparent;
+    border-radius: 2.4rem;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.certificate-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 35px rgba(88, 50, 210, 0.5);
+}
+
+.certificate-card:hover::before {
+    border: 3px solid #5832d2;
+    box-shadow: 0 0 30px rgba(88, 50, 210, 0.5), inset 0 0 20px rgba(88, 50, 210, 0.15);
+}
+
+.certificate-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s ease;
+    aspect-ratio: 4 / 3; /* enforce a consistent image area so cards match vertically */
+    border-radius: 10px;
+}
+
+.certificate-card:hover .certificate-image {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+}
+
+/* Responsive fallback: switch to auto-fit on narrow screens */
+@media (max-width: 900px) {
+    .certificates-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-auto-rows: auto;
+    }
+    .certificate-image {
+        aspect-ratio: auto;
+    }
+}
+
+/* Ensure grid rows size by content and items align to the top so
+   later-row cards (4th,5th,8th, etc.) are fully visible */
+.certificates-container {
+    align-items: start;
+    grid-auto-rows: auto;
+}
+
+.certificate-card:hover .certificate-image {
+    filter: brightness(1.1);
+}
+
+/* Create a decorative border pseudo-element so the visible border can
+   enlarge on hover without resizing the card content (image stays same). */
+.certificate-card {
+    --border-color: #5832d2;
+    --border-width: 2px;
+}
+.certificate-card::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: var(--border-width) solid var(--border-color);
+    box-sizing: border-box;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    z-index: 0; /* behind card content */
+    pointer-events: none;
+}
+.certificate-card > *{
+    position: relative;
+    z-index: 1; /* keep content above the pseudo-border */
+}
+.certificate-card:hover::before,
+.certificate-card:focus-within::before{
+    transform: scale(1.06); /* enlarge visual border */
+    box-shadow: 0 6px 20px rgba(88,50,210,0.18);
+}
+
+/* Dropdown info panel: hidden by default, revealed on hover or focus */
+.certificate-info{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), padding 0.4s ease, opacity 0.4s ease;
+    padding: 0 1.5rem;
+    opacity: 0;
+    background: transparent;
+}
+.certificate-info h3{
+    font-size: 1.4rem;
+    margin: 0.5rem 0 0.3rem;
+    color: #fff;
+    font-weight: 600;
+}
+.certificate-info p{
+    font-size: 1.1rem;
+    margin: 0;
+    color: #ccc;
+    line-height: 1.4;
+}
+.certificate-card:hover .certificate-info,
+.certificate-card:focus-within .certificate-info{
+    max-height: 8rem;
+    padding: 0.6rem 1.5rem;
+    opacity: 1;
+}
+
+/* Make the info accessible on keyboard by allowing focus on the card */
+.certificate-card{outline: none}
+.certificate-card:focus-within{box-shadow: 0 0 0 3px rgba(88,50,210,0.12)}
+
+/* Copyright Footer */
+.copyright {
+    background: rgba(0, 0, 0, 0.9);
+    border-top: 2px solid rgba(88, 50, 210, 0.3);
+    padding: 2rem 9%;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.copyright p {
+    font-size: 1.3rem;
+    color: #aaa;
+    margin: 0;
+    font-weight: 500;
+}
+
+.copyright p:hover {
+    color: #5832d2;
+    transition: color 0.3s ease;
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="skill.css">
+</head>
+<body>
+    <header>
+        <img src="logo.jpg" alt="" class="logoo">
+        <a href="#" class="logo">Abhishek Gupta</a>
+
+        <nav>
+            <a href="Home.html"> Home</a>
+            <a href="About_me.html"> About Me</a>
+            <a href="Certificates.html" >Certificates</a>
+            <a href="skill.html" class="active">Skills</a>
+            <a href="Education.html" >Education</a>
+            <a href="Experience.html" >Experience</a>
+            <a href="Contact.html" >Contact</a>
+        </nav>
+    </header>
+    <section>
+        <h2><span>My Skills</span></h2>
+        <div class="skills-container">
+            <div class="skill-card" tabindex="0">
+                <div class="skill-inner">
+                    <img src="skills.jpg" alt="Skill 1" id="skill-img">
+                </div>
+                <div class="skill-info">
+                    <h3>Technical Skills</h3>
+                    <p><strong>Programming Language Ever used</strong>: Python, HTML(not considered as a Programming lanuage by many), CSS(same), Javascript, SQL, JAVA
+                        <br><br>
+                        <strong>Also Familiar with</strong>: Various Tools and Technologies like Git, GitHub, VS Code, Jupyter Notebook, Anaconda, Postman, Figma, Adobe XD. <br>
+
+                    </p>
+                </div>
+            </div>
+            <div class="skill-card" tabindex="0">
+                <div class="skill-inner">
+                    <img src="skills1.jpg" alt="Skill 2" id="skill-img">
+                </div>
+                <div class="skill-info">
+                    <h3>Creative and Design skill</h3>
+                    <p><strong>Logo & Brand Design:</strong>
+Able to create simple logo concepts and explore visual identity ideas using Figma and Canva.
+<br><br>
+<strong>Web Aesthetics:</strong>
+Understand color palettes, layouts, and typography to design clean, modern UI sections.
+<br><br>
+<strong>Storyboarding & Visual Storytelling:</strong>
+Can outline scenes and plan narrative flow through simple storyboard panels.
+<br><br>
+<strong>Introductory 3D & Motion Concepts:</strong>
+Familiar with basic 3D modeling and simple motion principles; explore audio-visual sync using Blender and LMMS.</p>
+                </div>
+            </div>
+            <div class="skill-card" tabindex="0">
+                <div class="skill-inner">
+                    <img src="skills2.jpg" alt="Skill 3" id="skill-img">
+                </div>
+                <div class="skill-info">
+                    <h3>Problem-Solving Skills</h3>
+                    <p>Skilled at breaking down problems into smaller steps and approaching them with structured logic. <br><br>
+Able to analyze patterns, troubleshoot issues, and develop efficient solutions through critical thinking.</p>
+                </div>
+            </div>
+            <div class="skill-card" tabindex="0">
+                <div class="skill-inner">
+                    <img src="skills3.jpg" alt="Skill 4" id="skill-img">
+                </div>
+                <div class="skill-info">
+                    <h3>Cyber Security</h3>
+                    <p>Understand core security concepts like network layers, encryption, threats, and vulnerability analysis. <br><br>
+Able to identify basic risks, follow secure coding practices, and apply beginner-level defensive techniques.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let isAnimating = false;
+        const skillCards = document.querySelectorAll('.skill-card');
+        const animationDuration = 800; // matches CSS transition duration in ms
+
+        skillCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                if (isAnimating) {
+                    return; // prevent hover if animation is in progress
+                }
+                isAnimating = true;
+                
+                // Calculate card's current position
+                const rect = this.getBoundingClientRect();
+                const cardCenterX = rect.left + rect.width / 2;
+                const cardCenterY = rect.top + rect.height / 2;
+                
+                // Store position data as CSS variables for smooth expansion origin
+                this.style.setProperty('--card-center-x', `${cardCenterX}px`);
+                this.style.setProperty('--card-center-y', `${cardCenterY}px`);
+            });
+
+            card.addEventListener('mouseleave', function() {
+                // wait for animation to complete before allowing new hovers
+                setTimeout(() => {
+                    isAnimating = false;
+                }, animationDuration);
+            });
+        });
+    </script>
+    <footer class="copyright">
+        <p>&copy; 2025 Abhishek Gupta | Pixel_Nomad. All rights reserved.</p>
+    </footer>
+</body>
+</html>
