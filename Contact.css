@@ -262,6 +262,43 @@ nav a.active {
     background: linear-gradient(135deg, #7d5ef5, #5832d2);
 }
 
+/* Response Message */
+.response-message {
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    text-align: center;
+    font-weight: 600;
+    display: none;
+    animation: slideIn 0.3s ease;
+}
+
+.response-message.success {
+    display: block;
+    background: rgba(76, 175, 80, 0.2);
+    border: 2px solid #4caf50;
+    color: #81c784;
+}
+
+.response-message.error {
+    display: block;
+    background: rgba(244, 67, 54, 0.2);
+    border: 2px solid #f44336;
+    color: #ef5350;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     header {
