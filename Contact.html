@@ -6,6 +6,9 @@
     <title>Contact Me</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="Contact.css">
+    <!-- EmailJS Library - Using latest version only -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 </head>
 <body>
     <header>
@@ -13,7 +16,7 @@
         <a href="#" class="logo">Abhishek Gupta</a>
 
         <nav>
-            <a href="index.html"> Home</a>
+            <a href="Home.html"> Home</a>
             <a href="About_me.html"> About Me</a>
             <a href="Certificates.html">Certificates</a>
             <a href="skill.html">Skills</a>
@@ -89,12 +92,81 @@
             </div>
         </div>
 
-        
-
-
-
+        <!-- Contact Form Section (Optional) -->
+        <div class="form-section">
+            <h2>Or Send Me a Message</h2>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="senderName" name="senderName" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="senderEmail" name="senderEmail" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="subject" name="subject" placeholder="Subject">
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <div id="responseMessage" class="response-message"></div>
+                <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+            </form>
         </div>
     </section>
+
+    <script>
+        // Initialize EmailJS with your public key
+        emailjs.init('BP5aII3Jc0bPvQzb6');
+        console.log('EmailJS initialized successfully');
+
+        const contactForm = document.getElementById('contactForm');
+        const responseMessage = document.getElementById('responseMessage');
+        const submitBtn = document.getElementById('submitBtn');
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Disable button during sending
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            responseMessage.textContent = '';
+            responseMessage.className = 'response-message';
+
+            // Prepare email parameters
+            const templateParams = {
+                to_email: 'prabal.beas2@gmail.com',
+                from_name: document.getElementById('senderName').value,
+                from_email: document.getElementById('senderEmail').value,
+                subject: document.getElementById('subject').value || 'No Subject',
+                message: document.getElementById('message').value,
+                reply_to: document.getElementById('senderEmail').value
+            };
+
+            // Send email using EmailJS
+            emailjs.send(
+                'service_avga32n', // Replace with your service ID
+                'template_sc63kur', // Replace with your template ID
+                templateParams
+            ).then(function(response) {
+                responseMessage.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
+                responseMessage.className = 'response-message success';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+                contactForm.reset();
+
+                // Clear success message after 5 seconds
+                setTimeout(() => {
+                    responseMessage.textContent = '';
+                }, 5000);
+            }, function(error) {
+                responseMessage.textContent = '✗ Failed to send message. Please try again later.';
+                responseMessage.className = 'response-message error';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+                console.error('EmailJS Error:', error);
+            });
+        });
+    </script>
     <footer class="copyright">
         <p>&copy; 2025 Abhishek Gupta | Pixel_Nomad. All rights reserved.</p>
     </footer>
