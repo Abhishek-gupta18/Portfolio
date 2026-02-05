@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js">
+    <title>Portfolio Website</title>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            var typed = new Typed('.typing-text span', {
+                strings: ["Tech Enthusiast", "Cyber Security Enthusiast", "Sports Lover",'Developer','Hacking Freak','Singer'],
+                typeSpeed: 100,
+                backSpeed: 50,
+                loop: true
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <img src="logo.jpg" alt="" class="logoo">
+        <a href="#" class="logo">Abhishek Gupta</a>
+
+        <div class="nav-actions">
+            <nav>
+                <a href="#" class="active"> Home</a>
+                <a href="About_me.html"> About Me</a>
+                <a href="Certificates.html" >Certificates</a>
+                <a href="skill.html" >Skills</a>
+                <a href="Education.html" >Education</a>
+                <a href="Experience.html" >Experience</a>
+                <a href="Contact.html" >Contact Me</a>
+            </nav>
+            <button class="theme-toggle" type="button" aria-pressed="false">
+                <span class="theme-toggle-icon">🌙</span>
+                <span class="theme-toggle-text">Dark</span>
+            </button>
+        </div>
+    </header>
+    <section class="home">
+        <div class="home-img">
+            <img src="DP1.jpg" alt="">
+        </div>
+        <div class="home-content">
+            <h1>Hi, It's <span>Abhishek</span></h1>
+            <h2 class="typing-text">I'm a <span id="typed"></span></h2>
+            <p>Hi, I'm Abhishek Gupta — a developer and designer passionate about coding, cybersecurity, and creative tech. I enjoy solving problems with Python and web development while exploring design and animation. Preparing for engineering studies and hackathons, I aim to build future‑ready solutions. And yes, I probably spend more time with my laptop than with people — but at least my laptop never argues back!</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/abhishek-gupta-a01394341/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/Abhishek-gupta18"><i class="fa-brands fa-github"></i></a>
+                <!-- <a href="#"><i class="fa-brands fa-x-twitter"></i></a> -->
+                <a href="https://www.instagram.com/abgupta6176/"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <a href="#" class="btn">Hire me</a>
+        </div>
+    </section>
+    <footer class="copyright">
+        <p>&copy; 2025 Abhishek Gupta | Pixel_Nomad. All rights reserved.</p>
+    </footer>
+    <script src="theme.js"></script>
+</body>
+</html>

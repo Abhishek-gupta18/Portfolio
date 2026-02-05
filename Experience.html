@@ -12,15 +12,21 @@
         <img src="logo.jpg" alt="" class="logoo">
         <a href="#" class="logo">Abhishek Gupta</a>
 
-        <nav>
-            <a href="index.html"> Home</a>
-            <a href="About_me.html"> About Me</a>
-            <a href="Certificates.html">Certificates</a>
-            <a href="skill.html">Skills</a>
-            <a href="Education.html">Education</a>
-            <a href="Experience.html" class="active">Experience</a>
-            <a href="Contact.html">Contact</a>
-        </nav>
+        <div class="nav-actions">
+            <nav>
+                <a href="Home.html"> Home</a>
+                <a href="About_me.html"> About Me</a>
+                <a href="Certificates.html">Certificates</a>
+                <a href="skill.html">Skills</a>
+                <a href="Education.html">Education</a>
+                <a href="Experience.html" class="active">Experience</a>
+                <a href="Contact.html">Contact</a>
+            </nav>
+            <button class="theme-toggle" type="button" aria-pressed="false">
+                <span class="theme-toggle-icon">🌙</span>
+                <span class="theme-toggle-text">Dark</span>
+            </button>
+        </div>
     </header>
 
     <section class="experience-section">
@@ -59,6 +65,23 @@
                                 <span>Coding</span>
                                 <span>Kali Linux</span>
                                 <span>Dark web</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="exp-card">
+                            <h3>Trivarna CTF</h3>
+                            <p class="position">20th Position</p>
+                            <p class="description">Gave me a real Experience on ethical hacking, pentesting, Cryptography, OSWINT etc<p>
+                            <div class="tech-tags">
+                                <span>Ethical Hacking</span>
+                                <span>Hacker-Rank</span>
+                                <span>Cryptography</span>
                             </div>
                         </div>
                     </div>
@@ -196,16 +219,21 @@
                 <div class="project-card">
                     <div class="project-header">
                         <i class="fas fa-pen-fancy"></i>
-                        <h3>Bullet Journal (In Progress)</h3>
+                        <h3>Bullet Journal</h3>
                     </div>
-                    <p class="project-desc">A personal web development project stored in local directory. An interactive bullet journal application for task management and organization. Currently being developed with focus on user experience and responsive design.</p>
+                    <p class="project-desc">A personal web development project stored in local directory. An interactive bullet journal application for task management and organization.</p>
                     <p class="project-role"><strong>Role:</strong> Developer | <strong>Status:</strong> In Progress</p>
                     <div class="tech-tags">
                         <span>HTML/CSS</span>
                         <span>JavaScript</span>
                         <span>Local Storage</span>
+                        <br>
+                        <br>
+                        <div>
+                            <a href="https://bullet-light.vercel.app/" target="_blank" class="project-link">Click to view →</a>
+                            <!-- <a href="https://bullet-light.vercel.app/">Click Here</a> -->
+                        </div>
                     </div>
-                    <a href="https://bullet-light.vercel.app/" target="_blank" class="project-link">Go to Vercel →</a>
                 </div>
             </div>
         </div>
@@ -356,5 +384,6 @@
     <footer class="copyright">
         <p>&copy; 2025 Abhishek Gupta | Pixel_Nomad. All rights reserved.</p>
     </footer>
+    <script src="theme.js"></script>
 </body>
 </html>

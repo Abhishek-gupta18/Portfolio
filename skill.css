@@ -1,5 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
+:root {
+    --bg: linear-gradient(to bottom, #000000, #190850);
+    --text: #ffffff;
+    --text-muted: #aaa;
+    --text-subtle: #ccc;
+    --accent: #5832d2;
+    --header-bg: transparent;
+    --header-border: rgba(88, 50, 210, 0.3);
+    --footer-bg: rgba(0, 0, 0, 0.9);
+    --nav-bg-mobile: #161616;
+    --card-bg: rgba(88, 50, 210, 0.2);
+    --card-border: #5832d2;
+    --toggle-bg: rgba(88, 50, 210, 0.15);
+    --toggle-text: #ffffff;
+    --text-on-accent: #000000;
+}
+
+:root[data-theme="light"] {
+    --bg: linear-gradient(to bottom, #f9f9ff, #e6eaff);
+    --text: #1a1a1a;
+    --text-muted: #555;
+    --text-subtle: #666;
+    --header-bg: rgba(255, 255, 255, 0.85);
+    --footer-bg: rgba(255, 255, 255, 0.9);
+    --nav-bg-mobile: #f3f3fb;
+    --card-bg: rgba(88, 50, 210, 0.1);
+    --card-border: #5832d2;
+    --toggle-bg: rgba(88, 50, 210, 0.12);
+    --toggle-text: #1a1a1a;
+    --text-on-accent: #ffffff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -18,15 +50,17 @@ body {
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
-    background: linear-gradient(to bottom, black, #190850);
-    color: white;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.4s ease, color 0.4s ease;
+    zoom: 90%;
 }
 
 .logoo {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    box-shadow: 0 0 15px #5832d2;
+    box-shadow: 0 0 15px var(--accent);
 }
 
 header {
@@ -37,7 +71,7 @@ header {
     left: 0;
     width: 100%;
     padding: 1rem 9%;
-    background-color: transparent;
+    background-color: var(--header-bg);
     filter: drop-shadow(10px);
     display: flex;
     justify-content: space-between;
@@ -47,7 +81,7 @@ header {
 
 .logo {
     font-size: 3rem;
-    color: #5832d2;
+    color: var(--accent);
     font-weight: 800;
     cursor: pointer;
     transition: 0.5s ease;
@@ -59,7 +93,7 @@ header {
 
 nav a {
     font-size: 1.8rem;
-    color: white;
+    color: var(--text);
     margin-left: 4rem;
     font-weight: 500;
     transition: 0.3s ease;
@@ -68,8 +102,8 @@ nav a {
 
 nav a:hover,
 nav a.active {
-    color: #5832d2;
-    border-bottom: 3px solid #5832d2;
+    color: var(--accent);
+    border-bottom: 3px solid var(--accent);
 }
 
 @media(max-width:995px) {
@@ -79,11 +113,11 @@ nav a.active {
         top: 0;
         right: 0;
         width: 40%;
-        border-left: 3px solid #5832d2;
-        border-bottom: 3px solid #5832d2;
+        border-left: 3px solid var(--accent);
+        border-bottom: 3px solid var(--accent);
         border-bottom-left-radius: 2rem;
         padding: 1rem solid;
-        background-color: #161616;
+        background-color: var(--nav-bg-mobile);
         border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
     }
 
@@ -101,7 +135,7 @@ nav a.active {
     nav a.active {
         padding: 1rem;
         border-radius: 0.5rem;
-        border-bottom: 0.5rem solid #5832d2;
+        border-bottom: 0.5rem solid var(--accent);
     }
 }
 
@@ -117,11 +151,11 @@ h2 {
     font-size: 4rem;
     margin-bottom: 3rem;
     text-align: center;
-    color: white;
+    color: var(--text);
 }
 
 h2 span {
-    color: #5832d2;
+    color: var(--accent);
 }
 
 .skills-container {
@@ -137,21 +171,21 @@ h2 span {
 #skill-img{
     width: 300px;
     height: 300px;
-    box-shadow: 0 0 15px #5832d2;
+    box-shadow: 0 0 15px var(--accent);
     border-radius: 10%;
     transition: filter 0.8s ease;
     
 }
 .skill-card{
-    background: rgba(88, 50, 210, 0.2);
-    border: 2px solid #5832d2;
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
     border-radius: 15px;
     padding: 20px;
     margin: 20px;
     width: 100%;
     aspect-ratio: 1 / 1;
     text-align: center;
-    box-shadow: 0 0 10px #5832d2;
+    box-shadow: 0 0 10px var(--accent);
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     display: flex;
     flex-direction: column;
@@ -184,10 +218,10 @@ h2 span {
     height: auto;
     max-height: 85vh;
     overflow-y: auto;
-    box-shadow: 0 0 50px #5832d2, 0 0 80px rgba(88, 50, 210, 0.6), inset 0 0 30px rgba(88, 50, 210, 0.1);
+    box-shadow: 0 0 50px var(--accent), 0 0 80px rgba(88, 50, 210, 0.6), inset 0 0 30px rgba(88, 50, 210, 0.1);
     z-index: 1000;
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.92), rgba(88, 50, 210, 0.12));
-    border: 2px solid #5832d2;
+    border: 2px solid var(--accent);
     padding: 40px;
     backdrop-filter: blur(15px);
     border-radius: 20px;
@@ -222,20 +256,20 @@ h2 span {
 .skill-info h3 {
     font-size: 1.8rem;
     margin: 1rem 0 0.5rem;
-    color: #fff;
+    color: var(--text);
 }
 
 .skill-info p {
     font-size: 1.4rem;
     margin: 0.5rem 0 0;
-    color: #ddd;
+    color: var(--text-subtle);
     line-height: 1.6;
 }
 
 /* Copyright Footer */
 .copyright {
-    background: rgba(0, 0, 0, 0.9);
-    border-top: 2px solid rgba(88, 50, 210, 0.3);
+    background: var(--footer-bg);
+    border-top: 2px solid var(--header-border);
     padding: 2rem 9%;
     text-align: center;
     margin-top: 4rem;
@@ -243,12 +277,53 @@ h2 span {
 
 .copyright p {
     font-size: 1.3rem;
-    color: #aaa;
+    color: var(--text-muted);
     margin: 0;
     font-weight: 500;
 }
 
 .copyright p:hover {
-    color: #5832d2;
+    color: var(--accent);
     transition: color 0.3s ease;
+}
+
+.nav-actions{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.nav-actions nav{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.theme-toggle{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1.4rem;
+    background: var(--toggle-bg);
+    color: var(--toggle-text);
+    border-radius: 999px;
+    border: 2px solid var(--accent);
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theme-toggle:hover{
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 0 15px rgba(88, 50, 210, 0.4);
+}
+
+.theme-toggle:active{
+    transform: scale(0.98);
+}
+
+.theme-toggle-icon{
+    font-size: 1.4rem;
 }
